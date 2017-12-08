@@ -3,7 +3,8 @@ namespace jeyroik\tools\components;
 
 /**
  * Class Preg
- * @package gosp\webhooks\components
+ *
+ * @package jeyroik\tools\components
  * @author JeyRoik <jeyroik@gmail.com>
  */
 class Preg
