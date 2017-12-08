@@ -7,7 +7,7 @@ composer require jeyroik/preg:1.0
 
 # Usage
 
-```
+```php
 use jeyroik\tools\components\Preg;
 
 $s = 'Hello, @user.name! You hit this page @user.stat.hits times!';
