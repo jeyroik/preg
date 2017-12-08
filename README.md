@@ -3,7 +3,7 @@ Simple preg replace wrapper
 
 # Install
 
-composer require jeyroik\preg
+composer require jeyroik/preg:1.0
 
 # Usage
 
