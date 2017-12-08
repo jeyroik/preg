@@ -1,0 +1,17 @@
+{
+  "name": "jeyroik/preg",
+  "description": "Simple preg replace wrapper",
+  "authors": [
+    {
+      "name": "JeyRoik",
+      "email": "jeyroik@gmail.com",
+      "role": "developer"
+    }
+  ],
+  "type": "project",
+  "autoload": {
+        "psr-4": {
+            "jeyroik\\tools\\": ""
+        }
+    }
+}
