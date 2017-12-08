@@ -24,6 +24,6 @@ echo $preg->apply([
 
 Result will be:
 
-```
+```php
 Hello, JeyRoik! You hit this page 10 times!
 ```
