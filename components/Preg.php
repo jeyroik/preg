@@ -26,6 +26,9 @@ class Preg
     public function apply($values)
     {
         foreach ($values as $entity => $fields) {
+            if (is_object($fields) && method_exists($fields, '__toArray')) {
+                $fields = $fields->__toArray();
+            }
             foreach ($fields as $name => $value) {
                 if (is_array($value)) {
                     $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
