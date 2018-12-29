@@ -29,16 +29,21 @@ class Preg
             if (is_object($fields) && method_exists($fields, '__toArray')) {
                 $fields = $fields->__toArray();
             }
-            foreach ($fields as $name => $value) {
-                if (is_array($value)) {
-                    $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
-                } elseif (is_object($value)) {
-                    $value = method_exists($value, '__toArray') ? $value->__toArray() : (array) $value;
-                    $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
-                } else {
-                    $this->patterns[] = $entity ? $this->makeFieldPattern($entity, $name) : $this->makePattern($name);
-                    $this->values[] = $value;
+            if (is_array($fields)) {
+                foreach ($fields as $name => $value) {
+                    if (is_array($value)) {
+                        $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
+                    } elseif (is_object($value)) {
+                        $value = method_exists($value, '__toArray') ? $value->__toArray() : (array)$value;
+                        $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
+                    } else {
+                        $this->patterns[] = $entity ? $this->makeFieldPattern($entity, $name) : $this->makePattern($name);
+                        $this->values[] = $value;
+                    }
                 }
+            } else {
+                $this->patterns[] = $this->makePattern($entity);
+                $this->values[] = $fields;
             }
         }
         
