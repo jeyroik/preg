@@ -37,7 +37,9 @@ class Preg
                         $value = method_exists($value, '__toArray') ? $value->__toArray() : (array)$value;
                         $this->apply([$this->escapeField($entity . '.' . $name) => $value]);
                     } else {
-                        $this->patterns[] = $entity ? $this->makeFieldPattern($entity, $name) : $this->makePattern($name);
+                        $this->patterns[] = $entity
+                            ? $this->makeFieldPattern($entity, $name)
+                            : $this->makePattern($name);
                         $this->values[] = $value;
                     }
                 }
@@ -89,6 +91,6 @@ class Preg
      */
     protected function escapeField($field)
     {
-        return preg_replace(['/\@/i', '/\./i'], ['\\@', '\\.'], $field);
+        return preg_replace(['/\@/i', '/^\\\./i'], ['\\@', '\\.'], $field);
     }
 }
