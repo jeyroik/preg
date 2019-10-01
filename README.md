@@ -1,5 +1,7 @@
 # preg
-Simple preg replace wrapper
+Simple preg replace wrapper.
+
+***Deprecated***. Moved to jeyroik/extas-foundation as [Replace](https://github.com/jeyroik/extas-foundation/blob/master/src/components/Replace.php).
 
 # Install
 
